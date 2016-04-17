@@ -1,0 +1,52 @@
+<!-- Top level template for the chat page -->
+<template name="chat_page">
+	<div class="container">
+		<h2>Type in the box below to send a message!</h2>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="well well-lg">
+				{{#each messages}}
+				{{> chat_message}}
+				{{/each}}
+				</div>	
+			</div>
+		</div>
+	    <div class="row">
+			<div class="col-md-12">
+				<form class="js-send-chat">
+				<input class="input" type="text" name="chat" placeholder="type a message here...">
+				<button class="btn btn-default">send</button>
+				<br/>
+				<img class="emoticons" src="/emoticons.jpg" width="150" usemap="#emotiMap" />
+				<map name="emotiMap" class="js-emoticon">
+					<!-- first row -->
+					<area shape="rect" coords="0, 0, 30, 30" alt="Smile" id="emo1" />
+					<area shape="rect" coords="39, 0, 69, 30" alt="Sad" id="emo2" />
+					<area shape="rect" coords="80, 0, 110, 30" alt="Angry" id="emo3" />
+					<area shape="rect" coords="121, 0, 150, 30" alt="Surprise" id="emo4" />
+					<!-- second row -->
+					<area shape="rect" coords="0, 41, 30, 71" alt="Wink" id="emo5" />
+					<area shape="rect" coords="39, 41, 69, 71" alt="Tear" id="emo6" />
+					<area shape="rect" coords="80, 41, 110, 71" alt="Cry" id="emo7" />
+					<area shape="rect" coords="121, 41, 150, 71" alt="Upset" id="emo8" />
+					<!-- third row -->
+					<area shape="rect" coords="0, 84, 30, 113" alt="Dissappoint" id="emo9" />
+					<area shape="rect" coords="39, 84, 69, 113" alt="Love" id="emo10" />
+					<area shape="rect" coords="80, 84, 110, 113" alt="Tongue Out" id="emo11" />
+					<area shape="rect" coords="121, 84, 150, 113" alt="Grin" id="emo12" />
+				</map>
+				<h4>Click to send an emoticon</h4>
+			</form>
+			</div>
+		</div>
+	</div>
+</template>
+
+<!-- simple template that displays a message -->
+<template name="chat_message">
+	<img class="chatAvatar" src="/{{avatar}}" /> {{user}} said: {{{text}}}
+	<br>
+</template>
+
+
+
